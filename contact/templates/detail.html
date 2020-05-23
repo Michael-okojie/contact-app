@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% block content %}
+    <div>
+        <h2>{{ contact.name }}</h2>
+        <p>{{ contact.phone_number }}</p>
+        <p>{{ contact.email }}</p>
+    </div>
+
+    <div>
+        <p><a href="{% url 'edit' contact.pk %}">+ Edit Contact</a></p>
+        <p><a href="{% url 'delete' contact.pk %}">+ Delete Contact</a></p>
+    </div>
+    {% endblock content%}
+</body>
+</html>

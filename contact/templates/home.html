@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    {% block content %}
+        <div>
+            {% for contact in object_list %}
+                <h4><a href="{% url 'detail' contact.pk %}">{{ contact.name }}</a></h4>
+                <p>{{ contact.phone_number }}</p>
+            {% endfor %}
+        </div>
+
+        <div class="new-contact">
+            <p><a href="{% url 'create' %}">+Create New Contact</a></p>
+        </div>
+    {% endblock content %}
+</body>
+</html>
