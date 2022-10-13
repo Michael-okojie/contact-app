@@ -1,8 +1,6 @@
 from django.db import models
 from django.urls import reverse_lazy
 
-# Create your models here.
-
 
 class Contact(models.Model):
     name = models.CharField(max_length=50)
@@ -14,4 +12,3 @@ class Contact(models.Model):
 
     def get_absolute_url(self):
         return reverse_lazy('home')
-

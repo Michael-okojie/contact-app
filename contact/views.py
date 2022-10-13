@@ -1,9 +1,7 @@
-from django.shortcuts import render
 from .models import Contact
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import UpdateView, CreateView, DeleteView
+from django.views.generic import UpdateView, CreateView, DeleteView
 from django.urls import reverse_lazy
-# Create your views here.
 
 
 class ContactListView(ListView):
@@ -32,6 +30,3 @@ class ContactDeleteView(DeleteView):
     template_name = 'delete.html'
     model = Contact
     success_url = reverse_lazy('home')
-
-
-
