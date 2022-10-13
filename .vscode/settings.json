@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [],
+    "python.analysis.extraPaths": [],
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "autopep8",
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave": true,
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django"
+    ]
+}
