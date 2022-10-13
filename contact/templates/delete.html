@@ -1,18 +1,10 @@
 {% extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Contact Delete</title>
-</head>
-<body>
-    {% block content %}
-    <h1>Delete Contact</h1>
-        <form action="" method="post">
-            {% csrf_token %}
-            <p>Are You sure you want to delete "{{ contact.name }}"?</p>
-            <input type="submit" value="delete">
-        </form>
-    {% endblock content %}
-</body>
-</html>
+
+{% block content %}
+<h1>Delete Contact</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Are You sure you want to delete "{{ contact.name }}"?</p>
+    <input type="submit" value="delete">
+</form>
+{% endblock content %}

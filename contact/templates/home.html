@@ -8,9 +8,10 @@
 <body>
     {% block content %}
         <div>
-            {% for contact in object_list %}
-                <h4><a href="{% url 'detail' contact.pk %}">{{ contact.name }}</a></h4>
+            {% for contact in contacts %}
+                <h4><a href="{% url 'detail' contact.id %}">{{ contact.name }}</a></h4>
                 <p>{{ contact.phone_number }}</p>
+                <p>{{contact.email}}</p>
             {% endfor %}
         </div>
 
