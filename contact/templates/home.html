@@ -1,23 +1,28 @@
 {% extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
-    {% block content %}
-        <div>
-            {% for contact in contacts %}
-                <h4><a href="{% url 'detail' contact.id %}">{{ contact.name }}</a></h4>
-                <p>{{ contact.phone_number }}</p>
-                <p>{{contact.email}}</p>
-            {% endfor %}
-        </div>
+{% block content %}
 
-        <div class="new-contact">
-            <p><a href="{% url 'create' %}">+Create New Contact</a></p>
-        </div>
-    {% endblock content %}
-</body>
-</html>
+<div class="container-sm">
+    <div class="container">
+        <h3>Contacts</h3>
+    </div>
+
+    <div class="list-group list-group-checkable d-grid gap-2 border-0 w-auto">
+        {% for contact in contacts %}
+        <a href="{% url 'detail' contact.id %}" class="list-group-item list-group-item-action " aria-current="true">
+            {{ contact.name }}
+            <span class="d-block small opacity-50">{{contact.email}}</span>
+            <span class="d-block small opacity-50">{{contact.phone_number}}</span>
+        </a>
+        {% endfor %}
+        <a class="btn btn-primary" href="{% url 'create' %}" role="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path fill-rule="evenodd"
+                    d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+            </svg>
+        </a>
+    </div>
+</div>
+
+{% endblock content %}

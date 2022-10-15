@@ -1,10 +1,19 @@
-<div>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Register">
-    </form>
-    <div>
-        <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+{% extends 'base.html' %}
+{% block content %}
+<div class="login-page">
+    <div class="form">
+        <form class="register-form" method="post">
+            <h4>Create an account</h4>
+            {% csrf_token %}
+            <label>{{ form.username.label }}</label>
+            {{form.username}}
+            <label>{{ form.password1.label }}</label>
+            {{form.password1}}
+            <label>{{ form.password2.label }}</label>
+            {{form.password2}}
+            <button>Register</button>
+            <p class="message">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </form>
     </div>
 </div>
+{% endblock content %}

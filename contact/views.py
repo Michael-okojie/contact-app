@@ -1,6 +1,6 @@
 from django.shortcuts import redirect
 from django.views.generic import UpdateView, CreateView, DeleteView, ListView, DetailView, FormView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from .models import Contact
 from django.contrib.auth.forms import UserCreationForm
 
@@ -76,7 +76,12 @@ class ContactUpdateView(LoginRequiredMixin, UpdateView):
     model = Contact
     context_object_name = 'contact'
     fields = ["name", "phone_number", "email"]
-    success_url = reverse_lazy('contacts')
+    pk_url_kwarg = 'pk'
+    success_url = reverse_lazy('detail')
+
+    def get_success_url(self):
+        detail_id = self.object.pk
+        return reverse_lazy('detail', kwargs={'pk': detail_id})
 
 
 class ContactCreateView(LoginRequiredMixin, CreateView):
