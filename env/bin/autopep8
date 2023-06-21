@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/home/mo/web development/contact-app/env/bin/python" "$0" "$@"
+'''exec' "/home/mo/web development/contact-app/env/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
